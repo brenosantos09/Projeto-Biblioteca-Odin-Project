@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/app.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <div class="library">
+        <div class="library__header">
+            <div class="library__change-theme">
+                <input type="checkbox" name="change-theme" id="change-theme">
+                <label for="change-theme">
+                    <i class="bi bi-sun"></i>
+                    <i class="bi bi-moon"></i>
+                </label>
+            </div>
+            <h1 class="library__title">Biblioteca</h1>
+            <button class="library__btn" id="add-book">Adicionar Livro</button>
+        </div>
+        <div class="library__books" id="library-form-container">
+            <h1 id="input-result"></h1>
+            <form action="" class="library__form" id="library-form">
+                <button class="library__close-form" id="close-form">&#10005;</button>
+                <input type="text" id="author" placeholder="Autor">
+                <input type="text" id="title" placeholder="Título do Livro">
+                <input type="number" id="page-numbers" placeholder="Número de páginas">
+                <div class="library__read-status">
+                    <label for="read-status">Marcar como Lido</label>
+                    <input type="checkbox" name="read-status" id="read-status">
+                </div>
+                <button type="submit" id="submit-book">Adicionar</button>
+            </form>
+        </div>
+
+        <div id="book-list">
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
