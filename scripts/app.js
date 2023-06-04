@@ -63,3 +63,54 @@ function addBookToLibrary() {
   titleInput.value = '';
   pageNumbersInput.value = '';
 }
+
+function Book(author, title, pageNumbers, readStatus) {
+  this.author = author;
+  this.title = title;
+  this.pageNumbers = pageNumbers;
+  this.readStatus = readStatus;
+}
+
+Book.prototype.ToggleReadStatus = function () {
+  this.readStatus = !this.readStatus;
+};
+
+function displayBooks() {
+  bookListContainer.innerHTML = '';
+  myLibrary.forEach((book, index) => {
+    const bookCard = document.createElement('div');
+
+    const bookCardAuthor = document.createElement('h3');
+    const bookCardTitle = document.createElement('h4');
+    const bookCardPages = document.createElement('h5');
+    const bookRemoveButton = document.createElement('button');
+    const bookToggleStatusButton = document.createElement('button');
+
+    bookRemoveButton.classList.add('btn__library');
+    bookToggleStatusButton.classList.add('btn__library');
+
+    bookCardAuthor.innerText = `Autor: ${book.author}`;
+    bookCardTitle.innerText = `Título: ${book.title}`;
+    bookCardPages.innerText = `Número de Páginas: ${book.pageNumbers}`;
+    bookRemoveButton.innerText = 'Remover';
+    bookToggleStatusButton.innerText = book.readStatus ? 'lido' : 'não lido';
+
+    bookCard.setAttribute('data', index);
+
+    bookRemoveButton.addEventListener('click', () => {
+      removeBook(index);
+    });
+
+    bookToggleStatusButton.addEventListener('click', () => {
+      toggleStatus(index);
+    });
+
+    bookCard.append(bookCardAuthor);
+    bookCard.append(bookCardTitle);
+    bookCard.append(bookCardPages);
+    bookCard.append(bookRemoveButton);
+    bookCard.append(bookToggleStatusButton);
+
+    bookListContainer.appendChild(bookCard);
+  });
+}
