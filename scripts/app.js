@@ -46,3 +46,20 @@ addBookButton.addEventListener('click', () => {
 closeFormButton.addEventListener('click', (e) => {
   libraryFormContainer.classList.remove('show--form');
 });
+
+function addBookToLibrary() {
+  const bookAuthor = authorInput.value.trim();
+  const bookTitle = titleInput.value.trim();
+  const bookPageNumbers = pageNumbersInput.value.trim();
+  const bookReadStatus = readStatusCheckbox.checked;
+  const books = new Book(
+    bookAuthor,
+    bookTitle,
+    bookPageNumbers,
+    bookReadStatus
+  );
+  myLibrary.push(books);
+  authorInput.value = '';
+  titleInput.value = '';
+  pageNumbersInput.value = '';
+}
