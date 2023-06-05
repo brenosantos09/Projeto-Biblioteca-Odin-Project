@@ -114,3 +114,12 @@ function displayBooks() {
     bookListContainer.appendChild(bookCard);
   });
 }
+
+function toggleStatus(index) {
+  myLibrary[index].ToggleReadStatus();
+  displayBooks();
+}
+function removeBook(index) {
+  myLibrary.splice(index, 1);
+  displayBooks();
+}
