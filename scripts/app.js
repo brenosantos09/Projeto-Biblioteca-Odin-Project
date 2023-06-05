@@ -123,3 +123,8 @@ function removeBook(index) {
   myLibrary.splice(index, 1);
   displayBooks();
 }
+
+//dark mode
+document.querySelector('#change-theme').addEventListener('change', () => {
+  library.classList.toggle('dark--theme');
+});
